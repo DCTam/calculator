@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html>
+    <header>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> 
+    </header>
+
+    <body>
+        <div class="container">
+
+        <div class="col-md-4 col-lg-4 col-sm-4"></div>
+
+        <div id="layout" class="text-center col-md-4 col-lg-4 col-sm-4">
+            <h2>Calculator</h2>
+            <div class="well text-right">
+                <p id="output"></p>
+
+            </div>
+
+            <div id="tableAlign" align="center">
+                <table>
+                    <tr>
+                        <td><a id="clearBut" class="btn btn-danger but">AC</a></td>
+                        <td><a class="btn btn-danger but">CE</a></td>
+                        <td><a class="btn btn-default but">%</a></td>
+                        <td><a id="divideBut" class="btn btn-default but">/</a></td>
+                    </tr>
+
+                    <tr>
+                        <td><a id="sevenBut" class="btn btn-default but">7</a></td>
+                        <td><a id="eightBut" class="btn btn-default but">8</a></td>
+                        <td><a id="nineBut" class="btn btn-default but">9</a></td>
+                        <td><a id="multiplyBut" class="btn btn-default but">*</a></td>
+                    </tr>
+                    <tr>
+                        <td><a id="fourBut" class="btn btn-default but">4</a></td>
+                        <td><a id="fiveBut" class="btn btn-default but">5</a></td>
+                        <td><a id="sixBut" class="btn btn-default but">6</a></td>
+                        <td><a id="minusBut" class="btn btn-default but">-</a></td>
+                    </tr>
+                    <tr>
+                        <td><a id="oneBut" class="btn btn-default but">1</a></td>
+                        <td><a id="twoBut" class="btn btn-default but">2</a></td>
+                        <td><a id="threeBut" class="btn btn-default but">3</a></td>
+                        <td rowspan="2"><a id="plusBut" class="btn btn-default">+</a</td>
+                    </tr>
+                    <tr>
+                        <td><a id="zeroBut" class="btn btn-default but">0</a></td>
+                        <td><a id="decimalBut" class="btn btn-default but">.</a></td>
+                        <td><a id="equalBut" class="btn btn-default but">=</a></td>
+
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-lg-4 col-sm-4"></div>
+
+        </div>
+    </body>
+</html>
+    
+<style>
+    #output{
+	background-color: white;
+    }
+
+    #layout{
+        background-color: #ffffcc;
+    }
+    #tableAlign{
+
+    }
+    table{
+        align:center;
+    }
+
+    td{
+        border:solid 0px black;
+        height: 60px;
+        width: 60px;
+        padding: 5px;
+    }
+
+    .but{
+        height: 60px;
+        width: 60px;
+        line-height: 45px;
+        font-size: 20px;
+        font-weight:bold;
+    }
+    #plusBut{
+        height:130px;
+        width:60px;
+        line-height: 100px;
+        font-size: 20px;
+        font-weight:bold;
+    }
+</style>
+    
+<script>
+    function mathWork(num1 , num2, op){
+	switch(op){
+		case "+": return num1 + num2;break;
+		case "-": return num1 - num2;break;
+		case "*": return num1 * num2;break;
+		case "/": return num1 / num2;break;
+	}
+}
+
+$(document).ready(function(){
+	var outputNum1 = 0;
+	var outputNum2 = 0;
+	var operator = "";
+	var operatorBool = false;
+
+	$('#oneBut').on('click', function(){
+		if (operatorBool === true){
+			$('#output').empty();
+			operatorBool = false;
+		}
+		$('#output').append(1);
+	});
+	
+		$('#twoBut').on('click', function(){
+		if (operatorBool === true){
+			$('#output').empty();
+			operatorBool = false;
+		}
+		$('#output').append(2);
+	});
+	
+		$('#threeBut').on('click', function(){
+		if (operatorBool === true){
+			$('#output').empty();
+			operatorBool = false;
+		}
+		$('#output').append(3);
+	});
+	
+		$('#fourBut').on('click', function(){
+		if (operatorBool === true){
+			$('#output').empty();
+			operatorBool = false;
+		}
+		$('#output').append(4);
+	});
+	
+		$('#fiveBut').on('click', function(){
+		if (operatorBool === true){
+			$('#output').empty();
+			operatorBool = false;
+		}
+		$('#output').append(5);
+	});
+	
+		$('#sixBut').on('click', function(){
+		if (operatorBool === true){
+			$('#output').empty();
+			operatorBool = false;
+		}
+		$('#output').append(6);
+	});
+	
+		$('#sevenBut').on('click', function(){
+		if (operatorBool === true){
+			$('#output').empty();
+			operatorBool = false;
+		}
+		$('#output').append(7);
+	});
+	
+		$('#eightBut').on('click', function(){
+		if (operatorBool === true){
+			$('#output').empty();
+			operatorBool = false;
+		}
+		$('#output').append(8);
+	});
+	
+		$('#nineBut').on('click', function(){
+		if (operatorBool === true){
+			$('#output').empty();
+			operatorBool = false;
+		}
+		$('#output').append(9);
+	});
+	
+		$('#zeroBut').on('click', function(){
+		if (operatorBool === true){
+			$('#output').empty();
+			operatorBool = false;
+		}
+		$('#output').append(0);
+	});
+	
+	$('#plusBut').on('click', function(){
+			outputNum1 = $('#output').html();
+			operator = "+";
+			operatorBool = true;
+	});
+	
+	$('#minusBut').on('click', function(){
+			outputNum1 = $('#output').html();
+			operator = "-";
+			operatorBool = true;
+	});
+	
+	$('#divideBut').on('click', function(){
+			outputNum1 = $('#output').html();
+			operator = "/";
+			operatorBool = true;
+	});
+	
+	$('#multiplyBut').on('click', function(){
+			outputNum1 = $('#output').html();
+			operator = "*";
+			operatorBool = true;
+	});
+	
+	$('#equalBut').on('click', function(){
+				outputNum2 = $('#output').html();
+				var ans = mathWork(parseInt(outputNum1), parseInt(outputNum2), operator);
+				$('#output').html(ans);
+				outputNum1 = ans;
+				operatorBool = true;
+	});
+	
+	$('#clearBut').on('click',function(){
+		$('#output').empty();
+		operatorBool = false;
+		operator = "";
+	});
+	
+});
+</script>
